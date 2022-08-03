@@ -2,10 +2,11 @@
 #include <Windows.h>
 
 class Calculator {
-public:
+private:
     double num1;
     double num2;
 
+public:
     double add() {
         return num1 + num2;
     }
@@ -56,9 +57,9 @@ int main()
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    Calculator calculator;
-    double num;
-    boolean error = false;
+    Calculator calculator{};
+    double num = 0;
+    bool error = false;
 
     while (true) {
         do {

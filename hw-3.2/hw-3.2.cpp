@@ -36,7 +36,7 @@ int main()
     std::cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
     std::cin >> answer;
 
-    Counter counter;
+    Counter counter{};
 
     if (answer == "да") {
         int initValue;
@@ -53,27 +53,24 @@ int main()
             counter = Counter();
         }
     }
-
-    char ans[2] = "x";
+    
     bool stop = false;
     do {
         std::cout << "Введите команду ('+', '-', '=' или 'x'): ";
-        std::cin >> ans;
-        switch ((int)(ans[0])) {
-        case static_cast<int>('+'):
+        std::cin >> answer;
+        if (answer == "+") {
             counter.increase();
-            break;
-        case static_cast<int>('-'):
+        }
+        else if (answer == "-") {
             counter.decrease();
-            break;
-        case static_cast<int>('='):
+        }
+        else if (answer == "=") {
             std::cout << counter.getCounts() << "\n";
-            break;
-        case static_cast<int>('x'):
-        case static_cast<int>('х'):
+        }
+        else if ((answer == "x") || (answer == "х")) {
             stop = true;
-            break;
-        default:
+        }
+        else {
             std::cout << "Команда не распознана\n";
         }
     } while (!stop);
